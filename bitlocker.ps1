@@ -46,10 +46,6 @@ function sendEmailWithKey {
     )
 
     $path = ($volume + ":\Bitlocker\BitLockerKey_" + $env:COMPUTERNAME + ".txt")
-
-    createPath($volume)
-    
-    getVolumeKey($volume)
     
     # --- 1. Define Email Parameters ---
     $SMTPServer = "smtp.gmail.com"
@@ -114,7 +110,7 @@ function showMenu {
         Write-Host "3. Check Bitlocker Status"
         Write-Host "4. Export Bitlocker Key"
         Write-Host "5. Send Bitlocker Key via Email"
-        Write-Host "E. Exit"
+        Write-Host "0. Exit"
         
         $choice = Read-Host "`nPlease select an option (0-5)"
 
