@@ -47,9 +47,9 @@ function sendEmailWithKey {
 
     $path = ($volume + ":\Bitlocker\BitLockerKey_" + $env:COMPUTERNAME + ".txt")
 
-    createPath
+    createPath($volume)
     
-    getVolumeKey
+    getVolumeKey($volume)
     
     # --- 1. Define Email Parameters ---
     $SMTPServer = "smtp.gmail.com"
