@@ -121,7 +121,7 @@ function showMenu {
         Write-Host "5. Send Bitlocker Key via Email"
         Write-Host "E. Exit"
         
-        $choice = Read-Host "`nPlease select an option (0-5)"
+        $choice = Read-Host "`nPlease select an option (1-5 or E to exit)"
 
         switch ($choice) {
             1 { enableBitlocker }
@@ -135,7 +135,7 @@ function showMenu {
             E { Write-Host "Exiting..."; break }
             Default { Write-Warning "`nInvalid option, please try again." }
         }
-    } while ($choice -ne 0)
+    } while ($choice -ne "E")
 }
 
 showMenu
