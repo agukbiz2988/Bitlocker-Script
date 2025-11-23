@@ -119,7 +119,7 @@ function showMenu {
         Write-Host "3. Check Bitlocker Status"
         Write-Host "4. Export Bitlocker Key"
         Write-Host "5. Send Bitlocker Key via Email"
-        Write-Host "0. Exit"
+        Write-Host "E. Exit"
         
         $choice = Read-Host "`nPlease select an option (0-5)"
 
@@ -132,7 +132,7 @@ function showMenu {
                 $volume = Read-Host "`nPlease input the bitlocker drive letter for the key file"
                 sendEmailWithKey -volume $volume 
             }
-            0 { Write-Host "Exiting..."; break }
+            E { Write-Host "Exiting..."; break }
             Default { Write-Warning "`nInvalid option, please try again." }
         }
     } while ($choice -ne 0)
