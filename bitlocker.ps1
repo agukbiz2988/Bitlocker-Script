@@ -44,15 +44,24 @@ function sendEmailWithKey {
         [string] $to = (Read-Host "`nPlease input the recipient email address"),
         [string] $volume = (Read-Host "`nPlease input the bitlocker drive letter for the key file")
     )
+    
+    createPath($volume)
 
     $path = ($volume + ":\Bitlocker\BitLockerKey_" + $env:COMPUTERNAME + ".txt")
+
+    manage-bde -protectors -get C: |  Out-File -FilePath $path
     
     # --- 1. Define Email Parameters ---
     $SMTPServer = "smtp.gmail.com"
     $Subject = "Bitlocker Key Information for " + $env:COMPUTERNAME
     $Body = "Hi, 
     
-    please find the required document attached for the Bitlocker key information for computer " + $env:COMPUTERNAME
+    please find the required document attached for the Bitlocker key information for computer " + $env:COMPUTERNAME + "
+    
+    Developed by ANDYWARE
+    "
+
+
     $Attachment = $path
 
     # --- 2. Send the Email ---
